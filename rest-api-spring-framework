@@ -1,0 +1,35 @@
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.*;
+
+@SpringBootApplication
+public class TaskManagementSystemApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(TaskManagementSystemApplication.class, args);
+    }
+}
+
+@RestController
+class TaskController {
+
+    @GetMapping("/tasks")
+    public String getAllTasks() {
+        // Logic to fetch all tasks
+        return "List of tasks";
+    }
+
+    @PostMapping("/tasks")
+    public String createTask(@RequestBody Task task) {
+        // Logic to create a new task
+        return "Task created successfully";
+    }
+}
+
+class Task {
+    private String id;
+    private String name;
+    private String description;
+
+    // Getters and setters
+}
